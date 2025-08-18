@@ -1,0 +1,43 @@
+<div class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-6">
+        <h1 class="text-3xl font-bold text-gray-900">To-dos</h1>
+        <button 
+          onclick="createNewList()" 
+          class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
+          + New list
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Loading State -->
+    <div id="loading-state" class="text-center py-12">
+      <div class="text-gray-500 text-lg">Loading tasks...</div>
+    </div>
+
+    <!-- Lists Container (populated by JavaScript) -->
+    <div id="lists-container" class="space-y-4 hidden"></div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="text-center py-12 hidden">
+      <div class="text-gray-500 text-lg">No lists yet. Create your first list to get started!</div>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-state" class="text-center py-12 hidden">
+      <div class="text-red-500 text-lg">Error loading data. Please refresh the page.</div>
+    </div>
+  </main>
+</div>
+
+<script>
+  // Initialize the dashboard when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    loadDashboard();
+  });
+</script>

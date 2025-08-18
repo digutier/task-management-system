@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  assignee: one
+  limit_date: 2025-08-15
+  notify_to: MyText
+  notes: MyText
+  completed: false
+  estimated_time: 2025-08-15
+  list: one
+  weight: 1
+
+two:
+  name: MyString
+  assignee: two
+  limit_date: 2025-08-15
+  notify_to: MyText
+  notes: MyText
+  completed: false
+  estimated_time: 2025-08-15
+  list: two
+  weight: 1
