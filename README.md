@@ -101,6 +101,7 @@ Alrededor de 8 horas.
 - Drag & drop de listas.
 - Disponibilizar token válido para LLM de OpenAI.
 - Implementar testing.
+- Revisar problemas linter.
 
 ## Bugs
 
