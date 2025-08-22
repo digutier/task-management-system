@@ -48,10 +48,10 @@ bin/dev
 
 ## ¿Qué parte del código fue generado con IA?
 
-Se realizó un prompt inicial en base a instrucciones y reglas (una especie de context engineering) para que el agente pueda crear una buena base con la cual trabajar. Creó todos los controladores necesarios, las vistas, los modelos, logica javascript con stimulus, etc. 
+Se realizó un prompt inicial en base a instrucciones y reglas (una especie de context engineering) para que el agente pueda crear una base con la cual trabajar. Creó todos los controladores necesarios, las vistas, los modelos, logica javascript con stimulus, etc. 
 
-### Prompt inicial :
-Create a new project in ruby on rails. Use CLAUDE.md file as context and read it carefully and consider every detail/rules while creating this project. The PLANNING.md file has all the requirements for this project. If you have any question or doubts don't assume anything, just ask me and i will give you the answers.
+### Prompt inicial:
+Create a new project in ruby on rails. Use CLAUDE.md file as context and read it carefully and consider every detail/rules while creating this project. The PLANNING.md file has all the requirements for this project. If you have any question or doubts don't assume anything, ask me and i will give you the answers.
 
 ### Pregunta:
 Questions before I start:
@@ -62,13 +62,13 @@ Styling: Any preference for CSS framework (Bootstrap, Tailwind) or should I use 
 Estimated_time field: The planning shows estimated_time -> date but this seems like it should be a duration rather than a date. Should this be hours/minutes, or did you mean something else?
 
 ### Respuesta:
-1: Proceed with PostgreSQL. 2: Make a simple array field, that array should contain users ids. 3: For the moment let's do weight field auto-increment. 4: CSS with Tailwind. 5: Lets assume for estimated_time as the date when the task will be done, instead of the time that takes to complete.
+1: Proceed with PostgreSQL. 2: Make a simple array field, it should contain users ids. 3: For the moment let's do weight field auto-increment. 4: CSS with Tailwind. 5: Lets assume for estimated_time as the date when the task will be done, instead of the time that takes to complete.
 
-Luego para ir añadiendo nuevas funcionalidades pequeñas se fue realizando peticiones simples a la IA para que las añadiera como la capacidad de hacer drag and drop de las tareas tanto para la lista como entre listas, botón de añadir tarea con campos para el título y sus notas, botón para añadir lista, etc.
+Luego para ir añadiendo nuevas funcionalidades pequeñas se fue realizando peticiones simples a la IA para que las añadiera. Por ejemplo la capacidad de hacer drag and drop de las tareas tanto para la lista como entre listas, botón de añadir tarea con campos para el título y sus notas, botón para añadir lista, etc.
 
 ## ¿Cómo hiciste la validación de ese código?
 
-Como es un stack tecnológico con el que nunca había trabajado antes, me tomé el tiempo para revisar linea por linea el código aprendiendo sobre el lenguaje Ruby y el framework Rails, patrones de diseño, sintaxis, etc. Cada vez que no entendía bien lo que realizaba le preguntaba a la IA para que me explicara. El proyecto sirvió para aprender nuevas tecnologías.
+Como es un stack tecnológico con el que nunca había trabajado antes, me tomé el tiempo para revisar linea por linea el código aprendiendo sobre el lenguaje Ruby y el framework Rails, patrones de diseño, sintaxis, etc. Cada vez que no entendía bien lo que realizaba le preguntaba a la IA para que me explicara. El proyecto sirvió para aprender sobre estas tecnologías.
 
 ## ¿Por qué tomaste ciertas decisiones de diseño o arquitectura?
 
@@ -105,3 +105,16 @@ Alrededor de 8 horas.
 ## Bugs
 
 - Al crear una tarea en una lista, no se puede hacer drag & drop en esa tarea hasta hacer refresh de la página.
+
+## Screenshots
+Vista inicial:
+<img width="1510" height="823" alt="Screenshot 2025-08-22 at 11 42 26 AM" src="https://github.com/user-attachments/assets/bf4e61fb-65c7-472f-a31a-f2ed392e03de" />
+
+Listas expandidas:
+<img width="1510" height="823" alt="Screenshot 2025-08-22 at 11 42 44 AM" src="https://github.com/user-attachments/assets/a4dcb0e1-743c-4fce-8d23-23d8312f684e" />
+
+Crendo nueva tarea dentro de una lista:
+<img width="1512" height="822" alt="Screenshot 2025-08-22 at 11 43 27 AM" src="https://github.com/user-attachments/assets/b318cf6f-c3d1-4485-9fc9-abe57f8ffea2" />
+
+Detalles de una tarea:
+<img width="1512" height="822" alt="Screenshot 2025-08-22 at 11 44 12 AM" src="https://github.com/user-attachments/assets/19b4d3bc-3b8b-43b5-bca0-0b347887c865" />
