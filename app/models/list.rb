@@ -1,4 +1,6 @@
 class List < ApplicationRecord
+  include WeightManageable
+
   # Associations
   has_many :tasks, dependent: :destroy
 
@@ -10,8 +12,8 @@ class List < ApplicationRecord
 
   private
 
-  # Auto-increment weight for new lists
+  # Auto-increment weight for new lists using 10000 intervals
   def set_weight
-    self.weight = (List.maximum(:weight) || 0) + 1
+    self.weight = calculate_new_weight
   end
 end

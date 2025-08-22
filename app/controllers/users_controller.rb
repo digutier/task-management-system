@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update]
+  before_action :set_user, only: [ :show, :update ]
 
   # GET /users
   # Fetches all users from the database and returns them as JSON.
   def index
     @users = User.all
-    
+
     respond_to do |format|
       format.html { redirect_to root_path }
       format.json { render json: @users }

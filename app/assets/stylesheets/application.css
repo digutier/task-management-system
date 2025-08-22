@@ -8,3 +8,37 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Drag and Drop Styles */
+.sortable-ghost {
+  opacity: 0.5;
+  background: #f3f4f6;
+  border: 2px dashed #d1d5db;
+}
+
+.sortable-chosen {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.sortable-drag {
+  transform: rotate(2deg);
+  opacity: 0.8;
+}
+
+.drag-handle:hover,
+.task-drag-handle:hover {
+  color: #6b7280 !important;
+}
+
+.list-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.task-item:hover {
+  background-color: #f9fafb;
+}

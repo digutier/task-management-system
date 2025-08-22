@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_15_043554) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_21_061346) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -28,7 +28,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_15_043554) do
     t.integer "notify_to", default: [], array: true
     t.text "notes"
     t.boolean "completed", default: false
-    t.date "estimated_time"
+    t.string "estimated_time"
     t.bigint "list_id", null: false
     t.integer "weight"
     t.datetime "created_at", null: false

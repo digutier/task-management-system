@@ -53,3 +53,6 @@
     - `notify_to` with title `When done, notify`
     - `notes` with title `Notes`
   - A trash button can DELETE the task and redirect to the main view with the task deleted
+
+### New feature:
+- Let's reimagine the weight field for tasks and lists. We need a new feature that allows the user to drag and drop both lists and tasks and update the weight value in real time, that means whenever the user drops the element to a different spot. There is a problem with this: if we have too many tasks or lists then we would have to update each one of them whenever a task/list is being moved which is inefficient. The solution to this is that we will apply weights in the order of 10000 for each created task/list, and when an element is moved between two, the new weight will be the average of the weights between the new spot. With this solution, only one element will be patched. If there is no available weight between two spots, then we will normalize all entries and reapply their weight in the order 10000 from 0 to n*10000. I want you to implement this drag and drop feature, weight reinvention and patch rules when moving an entity to another spot.

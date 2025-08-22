@@ -4,10 +4,10 @@ class CreateTasks < ActiveRecord::Migration[8.0]
       t.string :name
       t.references :assignee, null: true, foreign_key: { to_table: :users }
       t.date :limit_date
-      t.text :notify_to
+      t.integer :notify_to, array: true, default: []
       t.text :notes
       t.boolean :completed, default: false
-      t.date :estimated_time
+      t.string :estimated_time
       t.references :list, null: false, foreign_key: true
       t.integer :weight
 
