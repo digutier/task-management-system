@@ -55,4 +55,15 @@
   - A trash button can DELETE the task and redirect to the main view with the task deleted
 
 ### New feature:
-- Let's reimagine the weight field for tasks and lists. We need a new feature that allows the user to drag and drop both lists and tasks and update the weight value in real time, that means whenever the user drops the element to a different spot. There is a problem with this: if we have too many tasks or lists then we would have to update each one of them whenever a task/list is being moved which is inefficient. The solution to this is that we will apply weights in the order of 10000 for each created task/list, and when an element is moved between two, the new weight will be the average of the weights between the new spot. With this solution, only one element will be patched. If there is no available weight between two spots, then we will normalize all entries and reapply their weight in the order 10000 from 0 to n*10000. I want you to implement this drag and drop feature, weight reinvention and patch rules when moving an entity to another spot.
+
+Let’s rethink how we handle the weight field for tasks and lists.
+
+We want to introduce a new feature that allows users to drag and drop both lists and tasks, updating their weight values in real time whenever an item is repositioned.
+
+The challenge is efficiency: if we update the weight of every task or list each time one is moved, the system becomes inefficient—especially when handling a large number of items.
+
+To solve this, we’ll assign initial weights in increments of 10,000 for each newly created task or list. When an element is dropped between two others, its new weight will simply be the average of the neighboring weights. With this approach, only the moved element requires an update.
+
+If at some point there’s no available integer between two weights (e.g., the gap is exhausted after many moves), we’ll perform a normalization step: reassigning all weights sequentially in increments of 10,000 (from 0 to n × 10,000).
+
+Your task is to implement this drag-and-drop behavior, the weighting logic, and the patching rules for when an entity is moved to a new position.
