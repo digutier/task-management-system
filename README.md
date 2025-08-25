@@ -82,13 +82,14 @@ En general todo lo que generaba era correcto, sin embargo, se presentó mucha re
 
 ## ¿Cuánto tiempo te tomó hacer el ejercicio?
 
-Alrededor de 8 horas.
+Alrededor de 9 horas.
 
 ## Features principales
 
 - Visualizador de listas:
   - Creación de listas
   - Creación de tareas -> LLM genera estimación de tiempo en base al título y las notas de la tarea.
+  - Actualización de tareas -> LLM actualiza estimación de tiempo sólo si se modifican las notas.
   - Drag & drop de tareas dentro de una misma lista y entre listas.
   - Marcar como completada una tarea o no completada.
 - Edición de tarea:
@@ -99,7 +100,6 @@ Alrededor de 8 horas.
 
 - Borrado lógico de tareas y listas.
 - Drag & drop de listas.
-- Disponibilizar token válido para LLM de OpenAI.
 - Implementar testing.
 - Revisar problemas linter.
 
@@ -119,3 +119,37 @@ Crendo nueva tarea dentro de una lista:
 
 Detalles de una tarea:
 <img width="1512" height="822" alt="Screenshot 2025-08-22 at 11 44 12 AM" src="https://github.com/user-attachments/assets/19b4d3bc-3b8b-43b5-bca0-0b347887c865" />
+
+## Endpoints Task Management System
+
+## **Página Principal**
+| Método | Ruta | Controlador | Descripción |
+|--------|------|-------------|-------------|
+| `GET` | `/` | `home#index` | Vista principal del sistema |
+
+## **Usuarios (Users)**
+| Método | Ruta | Controlador | Descripción |
+|--------|------|-------------|-------------|
+| `GET` | `/users` | `users#index` | Listar todos los usuarios |
+| `GET` | `/users/:id` | `users#show` | Ver usuario específico |
+| `POST` | `/users` | `users#create` | Crear nuevo usuario |
+| `PATCH/PUT` | `/users/:id` | `users#update` | Actualizar usuario existente |
+
+## **Listas (Lists)**
+| Método | Ruta | Controlador | Descripción |
+|--------|------|-------------|-------------|
+| `GET` | `/lists` | `lists#index` | Listar todas las listas |
+| `GET` | `/lists/:id` | `lists#show` | Ver lista específica |
+| `POST` | `/lists` | `lists#create` | Crear nueva lista |
+| `PATCH/PUT` | `/lists/:id` | `lists#update` | Actualizar lista existente |
+
+## **Tareas (Tasks)**
+| Método | Ruta | Controlador | Descripción |
+|--------|------|-------------|-------------|
+| `GET` | `/tasks` | `tasks#index` | Listar todas las tareas |
+| `GET` | `/tasks/:id` | `tasks#show` | Ver tarea específica |
+| `POST` | `/tasks` | `tasks#create` | Crear nueva tarea |
+| `PATCH/PUT` | `/tasks/:id` | `tasks#update` | Actualizar tarea existente |
+| `DELETE` | `/tasks/:id` | `tasks#destroy` | Eliminar tarea |
+| `GET` | `/tasks/:id/edit` | `tasks#edit` | Formulario de edición |
+
