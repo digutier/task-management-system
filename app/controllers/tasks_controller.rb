@@ -28,11 +28,11 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
-    # Rails.logger.info "Calling LLM service for time estimation"
-    # if @task.notes.present?
-    #   estimated_time = LlmService.estimate_task_time(@task.name, @task.notes)
-    #   @task.estimated_time = estimated_time if estimated_time
-    # end
+    Rails.logger.info "Calling LLM service for time estimation"
+    if @task.notes.present?
+      estimated_time = LlmService.estimate_task_time(@task.name, @task.notes)
+      @task.estimated_time = estimated_time if estimated_time
+    end
 
     if @task.save
       render json: @task, include: [ :assignee, :list ], status: :created

@@ -5,33 +5,35 @@ class LlmService
   def self.estimate_task_time(name, notes)
     return nil if notes.blank?
 
-    # OpenAI API
-    estimate_with_openai(name, notes)
+    # OpenRouter API
+    estimate_with_openrouter(name, notes)
   end
 
   private
 
-  def self.estimate_with_openai(name, notes)
+  def self.estimate_with_openrouter(name, notes)
     prompt = <<~PROMPT
       Based on the following task name and notes, provide a realistic time estimate for completion.
-      Return only the time estimate in a simple string format like "2 hours", "1 day", "3 weeks", etc. Only respond
-      with the time estimate in english, no other text.
+      Return only the time estimate in a simple string format like "2 hours", "1 day", "3 weeks", etc. No more words and only answer in english.
 
       Task name: #{name}
       Task notes: #{notes}
     PROMPT
 
     begin
-      uri = URI("https://api.openai.com/v1/chat/completions")
+      uri = URI("https://openrouter.ai/api/v1/chat/completions")
+      api_key = ENV["OPENROUTER_API_KEY"]
       request = Net::HTTP::Post.new(uri)
-      # TODO: Replace hardcoded token with OPENAI_API_KEY env variable (invalid token)
-      request["Authorization"] = "Bearer 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"
+      request["Authorization"] = "Bearer #{api_key}"
       request["Content-Type"] = "application/json"
       request.body = {
-        model: "gpt-3.5-turbo",
-        messages: [ { role: "user", content: prompt } ],
-        max_tokens: 50,
-        temperature: 0.3
+        model: "google/gemini-2.0-flash-lite-001",
+        messages: [
+          { role: "system", content: "You are a helpful assistant that estimates the time to complete a task based on the task name and notes." },
+          { role: "user", content: prompt }
+        ],
+        max_tokens: 20,
+        temperature: 0.1
       }.to_json
 
       response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
